@@ -1,0 +1,44 @@
+services:
+  # Main Web Service
+  - type: web
+    name: workspace-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: WS_PORT
+        value: 3001
+      - key: DATABASE_URL
+        fromDatabase:
+          name: workspace-postgres
+          property: connectionString
+      - key: MONGODB_URI
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_EXPIRY
+        value: 15m
+      - key: JWT_REFRESH_EXPIRY
+        value: 7d
+      - key: CORS_ORIGIN
+        value: '*'
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
+
+# Note: PostgreSQL database will be created separately in Render dashboard
+# MongoDB and Redis should use external free services:
+# - MongoDB: MongoDB Atlas (https://www.mongodb.com/cloud/atlas)
+# - Redis: Upstash (https://upstash.com)
