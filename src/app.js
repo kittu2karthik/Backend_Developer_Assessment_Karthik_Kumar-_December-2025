@@ -49,6 +49,7 @@ app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/projects', require('./routes/projects.routes'));
 app.use('/api/workspaces', require('./routes/workspaces.routes'));
 app.use('/api/collaborators', require('./routes/collaborators.routes'));
+app.use('/api/activities', require('./routes/activities.routes'));
 
 // 404 handler
 app.use((req, res) => {

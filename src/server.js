@@ -2,6 +2,7 @@ const http = require('http');
 const app = require('./app');
 const { connectDB } = require('./config/database');
 const connectMongoDB = require('./config/mongodb');
+const { initializeWebSocket } = require('./websocket/server');
 require('./config/redis'); // Initialize Redis connection
 require('dotenv').config();
 
@@ -15,6 +16,9 @@ const startServer = async () => {
     // Redis auto-connects on import
 
     const server = http.createServer(app);
+
+    // Initialize WebSocket
+    initializeWebSocket(server);
 
     server.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Server running on port ${PORT}`);
