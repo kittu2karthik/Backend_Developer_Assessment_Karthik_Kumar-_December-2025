@@ -1,5 +1,5 @@
 {
-  "name": "workspace-backend",
+  "name": "backend-developer-assessment",
   "version": "1.0.0",
   "description": "Real-time collaborative workspace backend API",
   "main": "src/server.js",
