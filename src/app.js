@@ -50,6 +50,7 @@ app.use('/api/projects', require('./routes/projects.routes'));
 app.use('/api/workspaces', require('./routes/workspaces.routes'));
 app.use('/api/collaborators', require('./routes/collaborators.routes'));
 app.use('/api/activities', require('./routes/activities.routes'));
+app.use('/api/jobs', require('./routes/jobs.routes'));
 
 // 404 handler
 app.use((req, res) => {

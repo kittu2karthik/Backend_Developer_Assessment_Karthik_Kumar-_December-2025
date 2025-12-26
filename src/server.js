@@ -4,6 +4,7 @@ const { connectDB } = require('./config/database');
 const connectMongoDB = require('./config/mongodb');
 const { initializeWebSocket } = require('./websocket/server');
 require('./config/redis'); // Initialize Redis connection
+require('./workers'); // Start background workers
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
