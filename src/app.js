@@ -44,8 +44,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes will be added here
-// app.use('/api/auth', require('./routes/auth.routes'));
+// API routes
+app.use('/api/auth', require('./routes/auth.routes'));
 // app.use('/api/projects', require('./routes/projects.routes'));
 // app.use('/api/workspaces', require('./routes/workspaces.routes'));
 
