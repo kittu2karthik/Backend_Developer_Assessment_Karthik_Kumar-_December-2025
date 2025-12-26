@@ -3,6 +3,7 @@ version: '3.8'
 services:
   app:
     build: .
+    image: workspace-backend:latest
     ports:
       - '3000:3000'
       - '3001:3001'
@@ -22,10 +23,7 @@ services:
       - postgres
       - mongo
       - redis
-    volumes:
-      - .:/app
-      - /app/node_modules
-    command: npm run dev
+    command: npm start
 
   postgres:
     image: postgres:15-alpine
@@ -39,7 +37,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   mongo:
-    image: mongo:6-alpine
+    image: mongo:latest
     ports:
       - '27017:27017'
     volumes:
